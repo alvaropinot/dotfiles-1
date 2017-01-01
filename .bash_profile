@@ -8,9 +8,9 @@ done
 unset file
 
 # to help sublimelinter etc with finding my PATHS
-case $- in
-   *i*) source ~/.extra
-esac
+# case $- in
+#    *i*) source ~/.extra
+# esac
 
 # generic colouriser
 GRC=`which grc`
@@ -38,7 +38,7 @@ export LESS_TERMCAP_us=$'\E[04;38;5;146m' # begin underline
 
 # Enable history expansion with space
 # E.g. typing !!<space> will replace the !! with your last command
-bind Space:magic-space
+# bind Space:magic-space
 
 # Use standard ISO 8601 timestamp
 # %F equivalent to %Y-%m-%d
@@ -56,7 +56,7 @@ type shopt &> /dev/null && shopt -s histappend  # append to history, don't overw
 export HISTIGNORE="&:[ ]*:exit:ls:bg:fg:history:clear"
 
 # Save multi-line commands as one command
-shopt -s cmdhist
+# shopt -s cmdhist
 
 # Save and reload the history after each command finishes
 export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
@@ -90,11 +90,12 @@ if [[ -n "$ZSH_VERSION" ]]; then  # quit now if in zsh
 fi;
 
 # bash completion.
-if  which brew > /dev/null && [ -f "$(brew --prefix)/share/bash-completion/bash_completion" ]; then
-    source "$(brew --prefix)/share/bash-completion/bash_completion";
-elif [ -f /etc/bash_completion ]; then
-    source /etc/bash_completion;
-fi;
+# if  which brew > /dev/null && [ -f "$(brew --prefix)/share/bash-completion/bash_completion" ]; then
+#     source "$(brew --prefix)/share/bash-completion/bash_completion";
+# elif [ -f /etc/bash_completion ]; then
+#     source /etc/bash_completion;
+# fi;
+[ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
 
 # homebrew completion
 if  which brew > /dev/null; then
@@ -121,13 +122,13 @@ complete -W "NSGlobalDomain" defaults
 ##
 
 # Case-insensitive globbing (used in pathname expansion)
-shopt -s nocaseglob;
+# shopt -s nocaseglob;
 
 # Correct spelling errors in arguments supplied to cd
-shopt -s cdspell;
+# shopt -s cdspell;
 
 # Autocorrect on directory names to match a glob.
-shopt -s dirspell 2> /dev/null
+# shopt -s dirspell 2> /dev/null
 
 # Turn on recursive globbing (enables ** to recurse all directories)
-shopt -s globstar 2> /dev/null
+# shopt -s globstar 2> /dev/null

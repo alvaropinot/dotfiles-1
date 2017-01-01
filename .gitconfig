@@ -102,3 +102,6 @@
 	fetch = +refs/heads/*:refs/remotes/origin/*
 [stash]
 	showPatch = true
+[user]
+	name = Alvaro Pinot
+	email = alvaro@neatnait.com
